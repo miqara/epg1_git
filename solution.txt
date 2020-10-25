@@ -1,0 +1,169 @@
+akarl@LAPTOP-TEU8C5DQ MINGW64 ~
+$ cd moje_repo_1
+
+akarl@LAPTOP-TEU8C5DQ MINGW64 ~/moje_repo_1
+$ git clone https://github.com/miqara/epg1_git.git
+Cloning into 'epg1_git'...
+remote: Enumerating objects: 18, done.
+remote: Total 18 (delta 0), reused 0 (delta 0), pack-reused 18
+Receiving objects: 100% (18/18), done.
+Resolving deltas: 100% (6/6), done.
+
+akarl@LAPTOP-TEU8C5DQ MINGW64 ~/moje_repo_1
+$ cd epg1_git
+
+akarl@LAPTOP-TEU8C5DQ MINGW64 ~/moje_repo_1/epg1_git (master)
+$ git branch
+* master
+
+akarl@LAPTOP-TEU8C5DQ MINGW64 ~/moje_repo_1/epg1_git (master)
+$ git checkout -b hw-11911
+Switched to a new branch 'hw-11911'
+
+akarl@LAPTOP-TEU8C5DQ MINGW64 ~/moje_repo_1/epg1_git (hw-11911)
+$ git rebase origin/rebase-me
+Committer identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'akarl@LAPTOP-TEU8C5DQ.(none)')
+
+akarl@LAPTOP-TEU8C5DQ MINGW64 ~/moje_repo_1/epg1_git (hw-11911|REBASE 1/2)
+$ git config --global user.email "s11911@pjwstk.edu.pl"
+
+akarl@LAPTOP-TEU8C5DQ MINGW64 ~/moje_repo_1/epg1_git (hw-11911|REBASE 1/2)
+$ git config --global user.name "miqara"
+
+akarl@LAPTOP-TEU8C5DQ MINGW64 ~/moje_repo_1/epg1_git (hw-11911|REBASE 1/2)
+$ git rebase --continue
+fatal: could not read log file '.git/rebase-merge/message': No such file or directory
+error: could not commit staged changes.
+
+akarl@LAPTOP-TEU8C5DQ MINGW64 ~/moje_repo_1/epg1_git (hw-11911|REBASE 1/2)
+$ git status
+interactive rebase in progress; onto 61eb5ac
+Last command done (1 command done):
+   pick 2078e4c decaps
+Next command to do (1 remaining command):
+   pick c42fe84 Escaped angle brackets
+  (use "git rebase --edit-todo" to view and edit)
+You are currently rebasing branch 'hw-11911' on '61eb5ac'.
+  (all conflicts fixed: run "git rebase --continue")
+
+Changes to be committed:
+        modified:   README.md
+
+
+akarl@LAPTOP-TEU8C5DQ MINGW64 ~/moje_repo_1/epg1_git (hw-11911|REBASE 1/2)
+$ git rebase --continue
+fatal: could not read log file '.git/rebase-merge/message': No such file or directory
+error: could not commit staged changes.
+
+akarl@LAPTOP-TEU8C5DQ MINGW64 ~/moje_repo_1/epg1_git (hw-11911|REBASE 1/2)
+$ got rebase --abort
+bash: got: command not found
+
+akarl@LAPTOP-TEU8C5DQ MINGW64 ~/moje_repo_1/epg1_git (hw-11911|REBASE 1/2)
+$ git rebase --abort
+
+akarl@LAPTOP-TEU8C5DQ MINGW64 ~/moje_repo_1/epg1_git (hw-11911)
+$ git rebase origin/rebase-me
+Successfully rebased and updated refs/heads/hw-11911.
+
+akarl@LAPTOP-TEU8C5DQ MINGW64 ~/moje_repo_1/epg1_git (hw-11911)
+$ git merge origin/merge-me
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.
+
+akarl@LAPTOP-TEU8C5DQ MINGW64 ~/moje_repo_1/epg1_git (hw-11911|MERGING)
+$ git status
+On branch hw-11911
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+akarl@LAPTOP-TEU8C5DQ MINGW64 ~/moje_repo_1/epg1_git (hw-11911|MERGING)
+$ cat README.md
+# Git homework
+- Create a fork of this repository
+- Clone your fork
+- Create a branch named hw-\<student number> (should point to master)
+- Rebase branch named rebase-me on top of your branch
+- Fast forward your branch to the tip of rebase-me
+- Merge branch named merge-me into your branch
+- Create solution.txt file listing all comands used to perform above steps
+- Create new commit that adds solution.txt to your branch
+- Push your branch to GitHub
+- Create Pull Request from your branch to this repository's master branch
+
+<<<<<<< HEAD
+## Rebase documentation
+<https://git-scm.com/docs/git-rebase>
+=======
+## Merge documentation
+<https://git-scm.com/docs/git-merge>
+>>>>>>> origin/merge-me
+
+akarl@LAPTOP-TEU8C5DQ MINGW64 ~/moje_repo_1/epg1_git (hw-11911|MERGING)
+$ git commit
+error: Committing is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+U       README.md
+
+akarl@LAPTOP-TEU8C5DQ MINGW64 ~/moje_repo_1/epg1_git (hw-11911|MERGING)
+$ git status
+On branch hw-11911
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+akarl@LAPTOP-TEU8C5DQ MINGW64 ~/moje_repo_1/epg1_git (hw-11911|MERGING)
+$ git commit -m
+error: switch `m' requires a value
+
+akarl@LAPTOP-TEU8C5DQ MINGW64 ~/moje_repo_1/epg1_git (hw-11911|MERGING)
+$ git commit -m "merged and resolved conflict in README.md"
+error: Committing is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+U       README.md
+
+akarl@LAPTOP-TEU8C5DQ MINGW64 ~/moje_repo_1/epg1_git (hw-11911|MERGING)
+$ git add/rm README.md
+git: 'add/rm' is not a git command. See 'git --help'.
+
+akarl@LAPTOP-TEU8C5DQ MINGW64 ~/moje_repo_1/epg1_git (hw-11911|MERGING)
+$ git add README.md
+
+akarl@LAPTOP-TEU8C5DQ MINGW64 ~/moje_repo_1/epg1_git (hw-11911|MERGING)
+$ git commit -m "merged and resolved conflict in README.md"
+
+[hw-11911 54df8f9] merged and resolved conflict in README.md
+
+akarl@LAPTOP-TEU8C5DQ MINGW64 ~/moje_repo_1/epg1_git (hw-11911)
+$
+
